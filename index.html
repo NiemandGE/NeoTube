@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoPlatform MVP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MyTube</h1>
+        <div id="auth-container">
+            <button id="logout-btn" style="display: none;">Выйти</button>
+        </div>
+    </header>
+
+    <!-- Форма входа/регистрации -->
+    <div id="auth-forms">
+        <div class="form-box">
+            <h2>Вход</h2>
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Пароль">
+            <button id="login-btn">Войти</button>
+            <p>Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a></p>
+        </div>
+        <div class="form-box" id="register-box" style="display: none;">
+            <h2>Регистрация</h2>
+            <input type="email" id="reg-email" placeholder="Email">
+            <input type="password" id="reg-password" placeholder="Пароль">
+            <button id="register-btn">Зарегистрироваться</button>
+            <p>Есть аккаунт? <a href="#" id="show-login">Войти</a></p>
+        </div>
+    </div>
+
+    <!-- Основной контент (скрыт до входа) -->
+    <main id="main-content" style="display: none;">
+        <section class="upload-section">
+            <h2>Добавить видео</h2>
+            <input type="text" id="video-title" placeholder="Название видео">
+            <input type="text" id="video-url" placeholder="Ссылка на видео (Google Drive/Dropbox прямая ссылка)">
+            <select id="video-source">
+                <option value="direct">Прямая ссылка (mp4)</option>
+                <option value="drive">Google Drive (требуется ID)</option>
+                <option value="dropbox">Dropbox (требуется dl=1)</option>
+            </select>
+            <button id="add-video-btn">Добавить</button>
+            <p class="hint">Для Google Drive используйте ID файла. Для Dropbox добавьте ?dl=1 в конец ссылки.</p>
+        </section>
+
+        <section class="videos-grid" id="videos-container">
+            <!-- Видео будут добавляться сюда -->
+        </section>
+    </main>
+
+    <!-- Firebase SDK (Modular v9+) -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
